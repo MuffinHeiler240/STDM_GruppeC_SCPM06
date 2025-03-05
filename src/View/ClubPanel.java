@@ -184,6 +184,7 @@ public class ClubPanel extends JPanel implements DataModelListener {
         clubComboBox.addActionListener(e -> {
             Mannschaft selectedClub = (Mannschaft) clubComboBox.getSelectedItem();
             assert selectedClub != null;
+            dataModel.setSelectedClub(selectedClub);
             loadPlayers(selectedClub.getClubId());
             loadData(selectedClub.getClubId());
         });
@@ -284,11 +285,15 @@ public class ClubPanel extends JPanel implements DataModelListener {
         if (dataModel.getSelectedClub() == null || dataModel.getSelectedClub().getClubId() == null) {
             return;
         }
-
-        loadPlayers(dataModel.getSelectedClub().getClubId());
-        loadData(dataModel.getSelectedClub().getClubId());
         //reload data of clubCombobox
         clubComboBox.setModel(new DefaultComboBoxModel<>(dataModel.getMannschaftList().toArray(new Mannschaft[0])));
+
+        Mannschaft First = dataModel.getMannschaftList().getFirst();
+
+        clubComboBox.setSelectedItem(First);
+
+        loadPlayers(First.ClubId);
+        loadData(First.ClubId);
     }
 
 

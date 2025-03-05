@@ -26,7 +26,7 @@ public class CreateClubFrame extends JFrame {
         JLabel nameLabel = new JLabel("Name");
         JTextField nameField = new JTextField();
 
-        JLabel trainerLabel = new JLabel("Name");
+        JLabel trainerLabel = new JLabel("Trainer");
         JTextField trainerField = new JTextField();
 
         JLabel formationLabel = new JLabel("Formation");

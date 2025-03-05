@@ -184,6 +184,7 @@ public class ClubPanel extends JPanel implements DataModelListener {
         clubComboBox.addActionListener(e -> {
             Mannschaft selectedClub = (Mannschaft) clubComboBox.getSelectedItem();
             assert selectedClub != null;
+            dataModel.setSelectedClub(selectedClub);
             loadPlayers(selectedClub.getClubId());
             loadData(selectedClub.getClubId());
         });
